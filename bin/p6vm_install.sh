@@ -1,5 +1,21 @@
 #!/bin/bash
 
+function install_dep() {
+
+   echo "Please run as root:"
+
+   if [ -f /etc/debian_version ]; then
+      echo
+      echo " apt-get install build-essential libicu-dev libreadline5-dev"
+      echo
+   elif [ -f /etc/redhat-release ]; then
+      echo
+      echo " yum groupinstall development-tools"
+      echo " yum install libicu-devel subversion readline-devel"
+      echo
+   fi
+}
+
 echo "Going to install p6vm"
 echo "   InstallPrefix: $HOME/perl6/p6vm"
 
@@ -23,12 +39,14 @@ cp bin/{p6vm.sh,p6vm.pl} $HOME/perl6/p6vm/bin
 cd ..
 rm -rf install
 
+install_dep
 
-echo "done."
 
 echo
 echo "Now please add $HOME/perl6/p6vm/bin/p6vm.sh to your .bashrc and reload your shell."
 echo
 echo "source $HOME/perl6/p6vm/bin/p6vm.sh"
 echo
+
+
 
