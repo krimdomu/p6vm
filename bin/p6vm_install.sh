@@ -30,7 +30,8 @@ mkdir install
 cd install
 
 echo "   Downloading package"
-curl https://github.com/krimdomu/p6vm/archive/master.zip | tar xzf -
+curl https://github.com/krimdomu/p6vm/archive/master.zip >master.zip 2>/dev/null
+unzip master.zip
 
 echo "   Installing"
 cp -R lib/* $HOME/perl6/p6vm/lib
