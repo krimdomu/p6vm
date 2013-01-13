@@ -8,6 +8,8 @@ function install_dep() {
       echo
       echo " apt-get install build-essential libicu-dev libreadline5-dev"
       echo
+      echo "If you use ubuntu you might replace libreadline5-dev with libreadline6-dev"
+      echo
    elif [ -f /etc/redhat-release ]; then
       echo
       echo " yum groupinstall development-tools"
