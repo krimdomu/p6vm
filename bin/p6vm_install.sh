@@ -30,18 +30,18 @@ mkdir install
 cd install
 
 echo "   Downloading package"
-curl https://github.com/krimdomu/p6vm/archive/master.zip >master.zip 2>/dev/null
-unzip master.zip
+curl https://nodeload.github.com/krimdomu/p6vm/zip/master >master.zip 2>/dev/null
+unzip master.zip >/dev/null 2>&1
 
 echo "   Installing"
+cd p6vm-master
 cp -R lib/* $HOME/perl6/p6vm/lib
 cp bin/{p6vm.sh,p6vm.pl} $HOME/perl6/p6vm/bin
 
-cd ..
+cd ../..
 rm -rf install
 
 install_dep
-
 
 echo
 echo "Now please add $HOME/perl6/p6vm/bin/p6vm.sh to your .bashrc and reload your shell."
