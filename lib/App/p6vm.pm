@@ -100,7 +100,7 @@ sub install {
    my $prefix = $self->dir("perls/$version");
 
    eval {
-      notify_cmd("perl Configure.pl --prefix=$prefix --gen-parrot", "   Configuring $version");
+      notify_cmd("perl Configure.pl --prefix=$prefix --gen-parrot --gen-moar --gen-nqp --backends=parrot,jvm,moar", "   Configuring $version");
    } or do {
       notify("Configure.pl failed. Please see $logfile for more information.");
       exit 1;
